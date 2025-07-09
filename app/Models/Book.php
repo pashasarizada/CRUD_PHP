@@ -23,7 +23,7 @@ class Book extends Model
     // veritabanından string olarak geldiği için...
 protected $casts = [
     'is_published' => 'boolean',
-    'price' => 'decimal2',
+    'price' => 'decimal:2',
     'pages' => 'integer',
 ];
 
