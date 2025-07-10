@@ -18,11 +18,13 @@ return new class extends Migration
             $table->id();
             
             // Kitap bilgileri - bu alanlar database'de sütun olarak oluşturulacak
-            $table->string('title');        // Kitap başlığı - VARCHAR(255)
-            $table->string('author');       // Yazar adı - VARCHAR(255)
-            $table->text('description');    // Kitap açıklaması - TEXT (uzun metin)
-            $table->integer('pages');       // Sayfa sayısı - INTEGER
-            $table->decimal('price', 8, 2); // Fiyat - DECIMAL(8,2) - 999999.99 formatında
+            $table->string('title');                    // Kitap başlığı - VARCHAR(255)
+            $table->string('author');                   // Yazar adı - VARCHAR(255)
+            $table->integer('publication_year');        // Yayın yılı - INTEGER
+            $table->string('genre');                    // Tür - VARCHAR(255)
+            $table->text('description')->nullable();    // Kitap açıklaması - TEXT (uzun metin) - nullable
+            $table->integer('page_count')->nullable();  // Sayfa sayısı - INTEGER - nullable
+            $table->string('isbn', 20)->nullable();     // ISBN - VARCHAR(20) - nullable
             $table->boolean('is_published')->default(false); // Yayınlanmış mı? - BOOLEAN
             
             // Laravel'in otomatik created_at ve updated_at alanları

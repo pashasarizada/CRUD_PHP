@@ -23,4 +23,25 @@ class BookService
     {
         return Book::create($data);
     }
+
+    // Kitap güncelle
+    public function updateBook($id, $data)
+    {
+        $book = Book::find($id);
+        if ($book) {
+            $book->update($data);
+            return $book;
+        }
+        return null;
+    }
+
+    // Kitap sil
+    public function deleteBook($id)
+    {
+        $book = Book::find($id);
+        if ($book) {
+            return $book->delete();
+        }
+        return false;
+    }
 }
